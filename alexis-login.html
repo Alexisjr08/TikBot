@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexis - Iniciar sesión</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f1f1f2;
+    margin: 0;
+    padding: 40px 16px;
+    display: flex;
+    justify-content: center;
+  }
+  .card {
+    max-width: 380px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #e5e5e5;
+    overflow: hidden;
+  }
+  .screen { padding: 32px 24px 24px; }
+  .hidden { display: none; }
+
+  .logo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: #e6f1fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #185fa5;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 8px;
+  }
+  h2 {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: #6b6b6b;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0 0 28px;
+  }
+
+  .btn {
+    height: 50px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid #d0d0d0;
+    background: #fff;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+  }
+  .btn:hover { background: #f7f7f7; }
+  .btn-primary {
+    background: #161616;
+    color: #fff;
+    border: none;
+  }
+  .btn-primary:hover { background: #2a2a2a; }
+  .btn-icon {
+    position: absolute;
+    left: 18px;
+    font-size: 18px;
+  }
+  .btn-stack { display: flex; flex-direction: column; gap: 14px; }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 4px 0;
+  }
+  .divider .line { flex: 1; height: 1px; background: #e5e5e5; }
+  .divider span { font-size: 12px; color: #9a9a9a; }
+
+  .terms {
+    font-size: 12px;
+    color: #9a9a9a;
+    text-align: center;
+    line-height: 1.6;
+    margin: 28px 0 0;
+  }
+  .terms a { color: #161616; text-decoration: none; }
+
+  .signup-row {
+    font-size: 14px;
+    text-align: center;
+    margin: 20px 0 0;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+  .signup-row a { color: #185fa5; font-weight: 600; text-decoration: none; }
+
+  .back-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .back-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+  }
+
+  .field { margin-bottom: 16px; }
+  label {
+    font-size: 13px;
+    color: #6b6b6b;
+    display: block;
+    margin-bottom: 6px;
+  }
+  input[type="text"], input[type="password"] {
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    height: 44px;
+    padding: 0 12px;
+    width: 100%;
+    font-size: 15px;
+    outline: none;
+  }
+  input:focus { border-color: #185fa5; }
+
+  .error-text {
+    font-size: 12px;
+    color: #d0223e;
+    margin-top: 4px;
+    display: none;
+  }
+  .error-text.show { display: block; }
+
+  .forgot {
+    font-size: 14px;
+    font-weight: 500;
+    color: #185fa5;
+    margin: 4px 0 24px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- PANTALLA 1: opciones de acceso -->
+  <div class="screen" id="screen-1">
+    <div class="logo-wrap">
+      <div class="logo">A</div>
+    </div>
+
+    <h1>Bienvenido a Alexis</h1>
+    <p class="subtitle">Inicia sesión para continuar.</p>
+
+    <div class="btn-stack">
+      <button class="btn btn-primary" id="btn-email">
+        <span class="btn-icon">✉️</span>
+        Continuar con correo
+      </button>
+
+      <div class="divider">
+        <div class="line"></div><span>o</span><div class="line"></div>
+      </div>
+
+      <button class="btn">
+        <span class="btn-icon">G</span>
+        Continuar con Google
+      </button>
+
+      <button class="btn">
+        <span class="btn-icon"></span>
+        Continuar con Apple
+      </button>
+    </div>
+
+    <p class="terms">
+      Al continuar, aceptas los <a href="#">Términos</a> y la
+      <a href="#">Política de privacidad</a> de Alexis.
+    </p>
+
+    <p class="signup-row">
+      ¿No tienes cuenta? <a href="#">Regístrate</a>
+    </p>
+  </div>
+
+  <!-- PANTALLA 2: formulario de correo/contraseña -->
+  <div class="screen hidden" id="screen-2">
+    <div class="back-row">
+      <button class="back-btn" id="btn-back" aria-label="Volver">&#8592;</button>
+      <h2>Inicia sesión con correo</h2>
+    </div>
+
+    <form id="login-form" autocomplete="off">
+      <div class="field">
+        <label for="input-email">Correo o usuario</label>
+        <input type="text" id="input-email" placeholder="nombre@ejemplo.com">
+        <div class="error-text" id="error-email">Ingresa tu correo o usuario.</div>
+      </div>
+
+      <div class="field">
+        <label for="input-password">Contraseña</label>
+        <input type="password" id="input-password" placeholder="Tu contraseña">
+        <div class="error-text" id="error-password">Ingresa tu contraseña.</div>
+      </div>
+
+      <p class="forgot">¿Olvidaste la contraseña?</p>
+
+      <button type="submit" class="btn btn-primary" id="submit-btn">Iniciar sesión</button>
+    </form>
+  </div>
+
+  <!-- PANTALLA 3: confirmación de guardado -->
+  <div class="screen hidden" id="screen-3">
+    <div class="logo-wrap">
+      <div class="logo">✓</div>
+    </div>
+    <h1>Datos guardados</h1>
+    <p class="subtitle">Se guardaron en este dispositivo (localStorage).</p>
+
+    <div class="field">
+      <label>Correo o usuario</label>
+      <div id="saved-email" style="font-size:15px;padding:10px 0;border-bottom:1px solid #eee;"></div>
+    </div>
+    <div class="field">
+      <label>Contraseña</label>
+      <div id="saved-password" style="font-size:15px;padding:10px 0;border-bottom:1px solid #eee;"></div>
+    </div>
+
+    <button class="btn" id="btn-restart" style="margin-top:16px;">Volver al inicio</button>
+  </div>
+
+</div>
+
+<script>
+  // ---- Navegación entre pantallas ----
+  const screen1 = document.getElementById('screen-1');
+  const screen2 = document.getElementById('screen-2');
+
+  document.getElementById('btn-email').onclick = () => {
+    screen1.classList.add('hidden');
+    screen2.classList.remove('hidden');
+  };
+  document.getElementById('btn-back').onclick = () => {
+    screen2.classList.add('hidden');
+    screen1.classList.remove('hidden');
+  };
+
+  // ---- Envío del formulario ----
+  document.getElementById('login-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const emailInput = document.getElementById('input-email');
+    const passwordInput = document.getElementById('input-password');
+    const errorEmail = document.getElementById('error-email');
+    const errorPassword = document.getElementById('error-password');
+    let valid = true;
+
+    if (emailInput.value.trim() === '') {
+      errorEmail.classList.add('show');
+      valid = false;
+    } else {
+      errorEmail.classList.remove('show');
+    }
+
+    if (passwordInput.value.trim() === '') {
+      errorPassword.classList.add('show');
+      valid = false;
+    } else {
+      errorPassword.classList.remove('show');
+    }
+
+    if (!valid) return;
+
+    // Se registra primero (por si el correo no existe todavía) y si ya
+    // existe, se intenta iniciar sesión. Todo pasa por tu servidor local,
+    // que guarda el hash de la contraseña con megadb — nunca la contraseña
+    // en texto plano.
+    const API = window.location.origin;
+
+    try {
+      let resp = await fetch(API + '/registro', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: emailInput.value, password: passwordInput.value })
+      });
+      let data = await resp.json();
+
+      if (!resp.ok && data.error === 'Ese correo ya está registrado.') {
+        resp = await fetch(API + '/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: emailInput.value, password: passwordInput.value })
+        });
+        data = await resp.json();
+      }
+
+      if (!resp.ok) {
+        errorPassword.textContent = data.error || 'No se pudo iniciar sesión.';
+        errorPassword.classList.add('show');
+        return;
+      }
+
+      document.getElementById('saved-email').textContent = emailInput.value;
+      document.getElementById('saved-password').textContent = '(guardada como hash en el servidor)';
+
+      screen2.classList.add('hidden');
+      document.getElementById('screen-3').classList.remove('hidden');
+    } catch (err) {
+      errorPassword.textContent = 'No se pudo conectar al servidor. ¿Está corriendo "node server.js"?';
+      errorPassword.classList.add('show');
+    }
+  });
+
+  document.getElementById('btn-restart').onclick = () => {
+    document.getElementById('screen-3').classList.add('hidden');
+    screen1.classList.remove('hidden');
+  };
+</script>
+
+</body>
+</html>
