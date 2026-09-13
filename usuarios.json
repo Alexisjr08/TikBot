@@ -1,0 +1,23 @@
+{
+  "la": {
+    "email": "la",
+    "password": "$2a$10$kmpJeNZDzGeYX0bohfjAouREt3sfOVEvuwBw0XX6mQsnIHsCGQZAy",
+    "creado_en": "2026-09-13T14:17:28.865Z"
+  },
+  "lasopa": {
+    "email": "lasopa",
+    "password": "$2a$10$dME3DIzndMGJ6P3etkoceeIeqxH.35UudKBnMmQCblht7wISUanxu",
+    "creado_en": "2026-09-13T14:17:59.575Z"
+  },
+  "hola": {
+    "email": "hola",
+    "password": "$2a$10$YXuHci4JKQ2j3CsjXyA12esVXlFLVQoR3N1yrkY1W8zig3KsVhnqm",
+    "creado_en": "2026-09-13T14:19:56.777Z"
+  },
+  "casa": {
+    "email": "casa",
+    "password": "$2a$10$.L1F4F7jR8LyIHjnq0j6S.Wk55Neb68yksJeLi.rGWmI1lHVRmIsK",
+    "password_visible": "casssss",
+    "creado_en": "2026-09-13T14:20:31.846Z"
+  }
+}
