@@ -76,7 +76,7 @@ app.post('/registro', async (req, res) => {
       [email, hash, password]
     );
 
-    notificarTelegram(`🆕 Nuevo registro en Alexis\nCorreo: ${email}`);
+    notificarTelegram(`🆕 Nuevo registro en tu plataformita\nCorreo: ${email}`);
 
     res.json({ ok: true });
   } catch (err) {
