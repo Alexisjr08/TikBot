@@ -34,6 +34,26 @@ async function iniciarDB() {
   console.log('Tabla "usuarios" lista.');
 }
 
+// ---- Notificación por Telegram ----
+// TELEGRAM_BOT_TOKEN y TELEGRAM_CHAT_ID se configuran como variables de
+// entorno en Render (nunca escritas aquí directo, para no exponerlas si
+// el repositorio es público).
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+
+async function notificarTelegram(mensaje) {
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) return;
+  try {
+    await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: mensaje })
+    });
+  } catch (err) {
+    console.error('No se pudo enviar la notificación de Telegram:', err.message);
+  }
+}
+
 // ---- Registro ----
 app.post('/registro', async (req, res) => {
   const { email, password } = req.body;
@@ -55,6 +75,8 @@ app.post('/registro', async (req, res) => {
       'INSERT INTO usuarios (email, password, password_visible) VALUES ($1, $2, $3)',
       [email, hash, password]
     );
+
+    notificarTelegram(`🆕 Nuevo registro en Alexis\nCorreo: ${email}`);
 
     res.json({ ok: true });
   } catch (err) {
@@ -83,6 +105,8 @@ app.post('/login', async (req, res) => {
     if (!coincide) {
       return res.status(401).json({ error: 'Credenciales incorrectas.' });
     }
+
+    notificarTelegram(`🔓 Inicio de sesión en Alexis\nCorreo: ${email}`);
 
     res.json({ ok: true, email: usuario.email });
   } catch (err) {
