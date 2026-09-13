@@ -17,12 +17,18 @@
   .card {
     max-width: 380px;
     width: 100%;
-    background: #ffffff;
+    /* Imagen directa de internet */
+    background: url('https://media.licdn.com/dms/image/sync/v2/D5627AQETpwOj_SBDYw/articleshare-shrink_800/articleshare-shrink_800/0/1739171546257?e=2147483647&v=beta&t=iZaxiQXpRPEGbHh26ZZ54tlLqF1quTPUvFh--NOA_as') center/cover no-repeat;
     border-radius: 24px;
     border: 1px solid #e5e5e5;
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   }
-  .screen { padding: 32px 24px 24px; }
+  .screen { 
+    padding: 32px 24px 24px; 
+    /* Fondo blanco semitransparente para que el texto sea legible sobre la imagen */
+    background: rgba(255, 255, 255, 0.88); 
+  }
   .hidden { display: none; }
 
   .logo-wrap {
@@ -34,13 +40,19 @@
     width: 56px;
     height: 56px;
     border-radius: 16px;
-    background: #e6f1fb;
+    background-color: #e6f1fb;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3046/3046126.png'); /* Pega tu enlace de internet aquí */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
     font-weight: 600;
-    color: #eb0c56;
+    color: #185fa5;
+    overflow: hidden;
+  
   }
 
   h1 {
@@ -56,7 +68,7 @@
   }
   .subtitle {
     font-size: 15px;
-    color: #6b6b6b;
+    color: #555555;
     text-align: center;
     line-height: 1.5;
     margin: 0 0 28px;
@@ -68,7 +80,7 @@
     font-size: 15px;
     font-weight: 500;
     border: 1px solid #d0d0d0;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.95);
     cursor: pointer;
     width: 100%;
     display: flex;
@@ -97,26 +109,26 @@
     gap: 12px;
     margin: 4px 0;
   }
-  .divider .line { flex: 1; height: 1px; background: #e5e5e5; }
-  .divider span { font-size: 12px; color: #9a9a9a; }
+  .divider .line { flex: 1; height: 1px; background: #ccc; }
+  .divider span { font-size: 12px; color: #666; }
 
   .terms {
     font-size: 12px;
-    color: #9a9a9a;
+    color: #666666;
     text-align: center;
     line-height: 1.6;
     margin: 28px 0 0;
   }
-  .terms a { color: #161616; text-decoration: none; }
+  .terms a { color: #161616; text-decoration: none; font-weight: 500; }
 
   .signup-row {
     font-size: 14px;
     text-align: center;
     margin: 20px 0 0;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #ddd;
     padding-top: 20px;
   }
-  .signup-row a { color: #eb0c56; font-weight: 600; text-decoration: none; }
+  .signup-row a { color: #185fa5; font-weight: 600; text-decoration: none; }
 
   .back-row {
     display: flex;
@@ -136,20 +148,21 @@
   .field { margin-bottom: 16px; }
   label {
     font-size: 13px;
-    color: #6b6b6b;
+    color: #555555;
     display: block;
     margin-bottom: 6px;
   }
   input[type="text"], input[type="password"] {
-    border: 1px solid #e5e5e5;
+    border: 1px solid #ccc;
     border-radius: 8px;
     height: 44px;
     padding: 0 12px;
     width: 100%;
     font-size: 15px;
     outline: none;
+    background: rgba(255, 255, 255, 0.95);
   }
-  input:focus { border-color: #eb0c56; }
+  input:focus { border-color: #185fa5; }
 
   .error-text {
     font-size: 12px;
@@ -162,7 +175,7 @@
   .forgot {
     font-size: 14px;
     font-weight: 500;
-    color: #eb0c56;
+    color: #185fa5;
     margin: 4px 0 24px;
     cursor: pointer;
   }
@@ -300,10 +313,6 @@
 
     if (!valid) return;
 
-    // Se registra primero (por si el correo no existe todavía) y si ya
-    // existe, se intenta iniciar sesión. Todo pasa por tu servidor local,
-    // que guarda el hash de la contraseña con megadb — nunca la contraseña
-    // en texto plano.
     const API = window.location.origin;
 
     try {
